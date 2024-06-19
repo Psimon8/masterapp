@@ -1,4 +1,11 @@
 # Fonction de traitement des valeurs avec des remplacements
+import re
+from turtle import st
+import numpy as np
+import pandas as pd
+import streamlit as st
+
+
 def process_value(value, replacements):
     special_chars_map = {
         "ö": "o", "ü": "u", "ù": "u", "ê": "e", "è": "e", "à": "a", "ó": "o", "ő": "o",
