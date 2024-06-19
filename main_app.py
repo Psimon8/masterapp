@@ -8,16 +8,25 @@ st.set_page_config(
 )
 
 def run_app1():
-    result = subprocess.run(["streamlit", "run", "apps/keyword-refine/keyword-app.py"], capture_output=True, text=True)
-    st.write(result.stdout)
+    try:
+        result = subprocess.run(["streamlit", "run", "apps/keyword-refine/keyword-app.py"], capture_output=True, text=True, check=True)
+        st.write(result.stdout)
+    except subprocess.CalledProcessError as e:
+        st.error(f"Failed to run Keyword Refine: {e.stderr}")
 
 def run_app2():
-    result = subprocess.run(["streamlit", "run", "apps/similarity-refine/similarity-app.py"], capture_output=True, text=True)
-    st.write(result.stdout)
+    try:
+        result = subprocess.run(["streamlit", "run", "apps/similarity-refine/similarity-app.py"], capture_output=True, text=True, check=True)
+        st.write(result.stdout)
+    except subprocess.CalledProcessError as e:
+        st.error(f"Failed to run Similarity Refine: {e.stderr}")
 
 def run_app3():
-    result = subprocess.run(["streamlit", "run", "app3/app.py"], capture_output=True, text=True)
-    st.write(result.stdout)
+    try:
+        result = subprocess.run(["streamlit", "run", "app3/app.py"], capture_output=True, text=True, check=True)
+        st.write(result.stdout)
+    except subprocess.CalledProcessError as e:
+        st.error(f"Failed to run App 3: {e.stderr}")
 
 st.sidebar.title("Navigation")
 app = st.sidebar.radio("Go to", ["Keyword Refine", "App 2", "App 3"])
