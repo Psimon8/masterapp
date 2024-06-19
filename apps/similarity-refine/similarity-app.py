@@ -2,7 +2,7 @@
 import re
 from turtle import st
 import pandas as pd
-import streamlit as st
+import streamlit as st # type: ignore
 
 def parse_filter_format_keywords(list_str, threshold):
     if not isinstance(list_str, str):
