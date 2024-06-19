@@ -11,11 +11,11 @@ st.set_page_config(
 
 
 def run_app1():
-    result = subprocess.run(["streamlit", "run", "keyword-refine/app.py"], capture_output=True, text=True)
+    result = subprocess.run(["streamlit", "run", "apps/keyword-refine/keyword-app.py"], capture_output=True, text=True)
     st.write(result.stdout)
 
 def run_app2():
-    result = subprocess.run(["streamlit", "run", "app2/app.py"], capture_output=True, text=True)
+    result = subprocess.run(["streamlit", "run", "apps/similarity-refine/similarity-app.py"], capture_output=True, text=True)
     st.write(result.stdout)
 
 def run_app3():
